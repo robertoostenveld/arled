@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/robertoostenveld/arled#readme",
   "dependencies": {
+    "artnet": "^1.2.3",
     "express": "^4.15.3"
   }
 }
