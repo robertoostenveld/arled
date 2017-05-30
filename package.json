@@ -1,0 +1,25 @@
+{
+  "name": "arled",
+  "version": "1.0.0",
+  "description": "Arwen's and Robert's LED controller",
+  "main": "arled.js",
+  "directories": {
+    "man": "man"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertoostenveld/arled.git"
+  },
+  "author": "Robert Oostenveld",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertoostenveld/arled/issues"
+  },
+  "homepage": "https://github.com/robertoostenveld/arled#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
