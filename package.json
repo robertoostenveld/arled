@@ -21,6 +21,9 @@
   "homepage": "https://github.com/robertoostenveld/arled#readme",
   "dependencies": {
     "artnet": "^1.2.3",
-    "express": "^4.15.3"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "path": "^0.12.7",
+    "request": "^2.81.0"
   }
 }

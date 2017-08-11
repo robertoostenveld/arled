@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jscolor.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+
+$( function() {
+  $( "#slider1" ).slider({
+    min: 0,
+    max: 255,
+    value: 128,
+    change: function(event, ui) {
+      updateSlider(event, ui);
+    }
+  });
+});
+
+function updateSlider(event, ui) {
+  // v = ui.value;
+  updateAll();
+}
+
+function updateColor(jscolor) {
+  // r = Math.round(jscolor.rgb[0]);
+  // g = Math.round(jscolor.rgb[1]);
+  // b = Math.round(jscolor.rgb[2]);
+  updateAll();
+}
+
+function updateAll() {
+  // get the values for each channel
+  var data = {
+    'c1': Math.round(document.getElementById("color1").jscolor.rgb[0]),
+    'c2': Math.round(document.getElementById("color1").jscolor.rgb[1]),
+    'c3': Math.round(document.getElementById("color1").jscolor.rgb[2]),
+    'c4': $("#slider1").slider("option", "value")
+  }
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "/", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(JSON.stringify(data));
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("reply").innerHTML = this.responseText;
+    }
+  }
+}
+
+</script>
+</head>
+
+<body>
+<h1>mode 1: single uniform color &lt;<a href="/">back</a>&gt;</h1>
+
+<p>color</p>
+<input id="color1" class="jscolor {mode:'HS', position:'right'}" onchange="updateColor(this.jscolor)" value="cc66ff">
+
+<p>intensity</p>
+<div id="slider1"></div>
+
+<p id="reply"></p>
+
+</body>
+</html>
