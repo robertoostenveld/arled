@@ -43,6 +43,17 @@ $( function() {
   });
 });
 
+$( function() {
+  $( "#slider4" ).slider({
+    min: 0,
+    max: 255,
+    value: 128,
+    change: function(event, ui) {
+      updateSlider(event, ui);
+    }
+  });
+});
+
 function updateSlider(event, ui) {
   // v = ui.value;
   updateAll();
@@ -61,12 +72,10 @@ function updateAll() {
     'c1': Math.round(document.getElementById("color1").jscolor.rgb[0]),
     'c2': Math.round(document.getElementById("color1").jscolor.rgb[1]),
     'c3': Math.round(document.getElementById("color1").jscolor.rgb[2]),
-    'c4': Math.round(document.getElementById("color2").jscolor.rgb[0]),
-    'c5': Math.round(document.getElementById("color2").jscolor.rgb[1]),
-    'c6': Math.round(document.getElementById("color2").jscolor.rgb[2]),
-    'c7': $("#slider1").slider("option", "value"),
-    'c8': $("#slider2").slider("option", "value"),
-    'c9': $("#slider3").slider("option", "value")
+    'c4': $("#slider1").slider("option", "value"),
+    'c5': $("#slider2").slider("option", "value"),
+    'c6': $("#slider3").slider("option", "value"),
+    'c7': $("#slider4").slider("option", "value")
   }
 
   var xhttp = new XMLHttpRequest();
@@ -84,22 +93,22 @@ function updateAll() {
 </head>
 
 <body>
-<h1>mode 7: ingle color smooth slider, segment can be moved along the array &lt;<a href="/">back</a>&gt;</h1>
+<h1>mode 7: single color smooth slider, segment can be moved along the array &lt;<a href="/">back</a>&gt;</h1>
 
 <p>color 1</p>
 <input id="color1" class="jscolor {mode:'HS', position:'right'}" onchange="updateColor(this.jscolor)" value="cc66ff">
 
-<p>color 2</p>
-<input id="color2" class="jscolor {mode:'HS', position:'right'}" onchange="updateColor(this.jscolor)" value="cc66ff">
-
-<p>position</p>
+<p>intensity</p>
 <div id="slider1"></div>
 
-<p>width</p>
+<p>position</p>
 <div id="slider2"></div>
 
-<p>ramp</p>
+<p>width</p>
 <div id="slider3"></div>
+
+<p>ramp</p>
+<div id="slider4"></div>
 
 <p id="reply"></p>
 
